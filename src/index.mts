@@ -5,24 +5,15 @@ import fastifyApollo, {
   fastifyApolloDrainPlugin,
 } from "@as-integrations/fastify";
 
+import { readFileSync } from "node:fs";
+import { Resolvers } from "./__generated__/resolvers-types";
+
+const schemaFile = new URL("../schemas/schema.graphql", import.meta.url);
+
 const app = fastify();
-
-const typeDefs = `#graphql
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
-
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
-`;
+const typeDefs = readFileSync(schemaFile, {
+  encoding: "utf-8",
+});
 
 const books = [
   {
@@ -35,9 +26,7 @@ const books = [
   },
 ];
 
-// Resolvers define how to fetch the types defined in your schema.
-// This resolver retrieves books from the "books" array above.
-const resolvers = {
+const resolvers: Resolvers = {
   Query: {
     books: () => books,
   },
