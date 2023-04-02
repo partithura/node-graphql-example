@@ -15,13 +15,11 @@ const buildConnectionConfig = (): Knex.Config => {
     },
     migrations: {
       directory: resolve(__dirname, './migrations'),
-      // directory: resolve(__dirname, '../../../data/migrations'),
       extension: 'ts',
       loadExtensions: ['.ts', '.js'],
     },
     seeds: {
       directory: resolve(__dirname, './seeds'),
-      // directory: resolve(__dirname, '../../../data/seeds'),
       extension: 'ts',
       loadExtensions: ['.js', '.ts'],
     },
