@@ -1,0 +1,23 @@
+{
+  "name": "node-graphql-example",
+  "license": "PROPRIETARY",
+  "packageManager": "yarn@3.5.0",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "watch": "nodemon src/index.mts",
+    "dev": "tsc-watch --onSuccess \"npm run watch\"",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.5.0",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.0",
+    "typescript": "^5.0.3"
+  }
+}
