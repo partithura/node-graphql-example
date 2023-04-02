@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@apollo/server": "^4.5.0",
+    "@as-integrations/fastify": "^1.3.2",
+    "fastify": "^4.15.0",
     "graphql": "^16.6.0"
   },
   "devDependencies": {
