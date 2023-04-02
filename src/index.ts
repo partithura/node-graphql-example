@@ -4,11 +4,13 @@ import fastify from 'fastify';
 import fastifyApollo, {
   fastifyApolloDrainPlugin,
 } from '@as-integrations/fastify';
+import { resolve } from 'node:path';
 
 import { readFileSync } from 'node:fs';
 import { Resolvers } from './__generated__/resolvers-types';
+import { PORT } from './config';
 
-const schemaFile = new URL('../schemas/schema.graphql', import.meta.url);
+const schemaFile = resolve(__dirname, '../schemas/schema.graphql');
 
 const app = fastify();
 const typeDefs = readFileSync(schemaFile, {
@@ -38,11 +40,13 @@ const apollo = new ApolloServer<BaseContext>({
   plugins: [fastifyApolloDrainPlugin(app)],
 });
 
-await apollo.start();
-await app.register(fastifyApollo(apollo));
+(async () => {
+  await apollo.start();
+  await app.register(fastifyApollo(apollo));
 
-const url = await app.listen({
-  port: 8080,
-});
+  const url = await app.listen({
+    port: PORT,
+  });
 
-console.log(`🚀  Server ready at: ${url}`);
+  console.log(`🚀  Server ready at: ${url}`);
+})().catch(console.error);

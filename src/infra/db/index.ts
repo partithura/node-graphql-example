@@ -1,10 +1,7 @@
 import type { Knex } from 'knex';
-import { fileURLToPath } from 'url';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import knex from 'knex';
-import { DATABASE as config } from '../../config.mjs';
-
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+import { DATABASE as config } from '../../config';
 
 const buildConnectionConfig = (): Knex.Config => {
   return {
@@ -17,14 +14,16 @@ const buildConnectionConfig = (): Knex.Config => {
       database: config.DB_NAME,
     },
     migrations: {
-      directory: resolve(__dirname, '../../../data/migrations'),
-      extension: 'mjs',
-      loadExtensions: ['.mjs'],
+      directory: resolve(__dirname, './migrations'),
+      // directory: resolve(__dirname, '../../../data/migrations'),
+      extension: 'ts',
+      loadExtensions: ['.ts', '.js'],
     },
     seeds: {
-      directory: resolve(__dirname, '../../../data/seeds'),
-      extension: 'mjs',
-      loadExtensions: ['.mjs'],
+      directory: resolve(__dirname, './seeds'),
+      // directory: resolve(__dirname, '../../../data/seeds'),
+      extension: 'ts',
+      loadExtensions: ['.js', '.ts'],
     },
   };
 };

@@ -6,4 +6,6 @@ const DATABASE = Object.freeze({
   DB_NAME: process.env.DB_NAME ?? 'graphql',
 });
 
-export { DATABASE };
+const PORT = Number(process.env.PORT ?? 8080);
+
+export { DATABASE, PORT };

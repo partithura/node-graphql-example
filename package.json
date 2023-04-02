@@ -2,16 +2,15 @@
   "name": "node-graphql-example",
   "license": "PROPRIETARY",
   "packageManager": "yarn@3.5.0",
-  "type": "module",
+  "type": "commonjs",
   "exports": "./dist/index.js",
   "scripts": {
-    "watch": "nodemon src/index.mts",
-    "dev": "tsc-watch --onSuccess \"npm run watch\"",
+    "dev": "nodemon src/index.ts",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "build": "yarn run generate && tsc",
     "generate": "graphql-codegen --config codegen.ts",
-    "knex": "node -r dotenv/config ./node_modules/.bin/knex --esm --knexfile ./dist/infra/db/knexfile.mjs"
+    "knex": "ts-node -r dotenv/config ./node_modules/.bin/knex --knexfile ./src/infra/db/knexfile.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.5.0",
@@ -21,6 +20,7 @@
     "graphql": "^16.6.0",
     "knex": "^2.4.2",
     "pg": "^8.10.0",
+    "tslib": "^2.5.0",
     "ulidx": "^0.5.0"
   },
   "devDependencies": {
@@ -38,7 +38,6 @@
     "nodemon": "^2.0.22",
     "prettier": "^2.8.7",
     "ts-node": "^10.9.1",
-    "tsc-watch": "^6.0.0",
     "typescript": "^5.0.3"
   }
 }

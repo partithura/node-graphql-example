@@ -3,9 +3,10 @@
     "rootDirs": ["src"],
     "outDir": "dist",
     "lib": ["es2020"],
-    "target": "es2019",
-    "module": "esnext",
+    "target": "es2020",
+    "module": "CommonJS",
     "moduleResolution": "node",
+    "importHelpers": true,
     "esModuleInterop": true,
     "types": ["node"]
   },
