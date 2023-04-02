@@ -1,28 +1,28 @@
-import type { BaseContext } from "@apollo/server";
-import { ApolloServer } from "@apollo/server";
-import fastify from "fastify";
+import type { BaseContext } from '@apollo/server';
+import { ApolloServer } from '@apollo/server';
+import fastify from 'fastify';
 import fastifyApollo, {
   fastifyApolloDrainPlugin,
-} from "@as-integrations/fastify";
+} from '@as-integrations/fastify';
 
-import { readFileSync } from "node:fs";
-import { Resolvers } from "./__generated__/resolvers-types";
+import { readFileSync } from 'node:fs';
+import { Resolvers } from './__generated__/resolvers-types';
 
-const schemaFile = new URL("../schemas/schema.graphql", import.meta.url);
+const schemaFile = new URL('../schemas/schema.graphql', import.meta.url);
 
 const app = fastify();
 const typeDefs = readFileSync(schemaFile, {
-  encoding: "utf-8",
+  encoding: 'utf-8',
 });
 
 const books = [
   {
-    title: "The Awakening",
-    author: "Kate Chopin",
+    title: 'The Awakening',
+    author: 'Kate Chopin',
   },
   {
-    title: "City of Glass",
-    author: "Paul Auster",
+    title: 'City of Glass',
+    author: 'Paul Auster',
   },
 ];
 
