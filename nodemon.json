@@ -1,5 +1,4 @@
 {
-  "verbose": true,
   "ignore": [
     "*.test.*",
     "dist/**",
@@ -9,9 +8,10 @@
     ".yarn/**"
   ],
   "execMap": {
-    "mts": "ts-node --esm"
+    "mts": "ts-node -r dotenv/config --esm"
   },
-  "watch": ["src/**"],
+  "ext": ".ts,.json,.graphql,.gql,.js",
+  "watch": ["src/**", "schemas/**"],
   "env": {
     "NODE_ENV": "development"
   }
