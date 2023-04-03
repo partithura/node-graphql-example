@@ -1,4 +1,7 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["knex/**/*", "codegen.ts", "src/**/*"]
+  "buildOptions": {
+    "baseUrl": "."
+  },
+  "include": ["./codegen.ts", "src/**/*"]
 }

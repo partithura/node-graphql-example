@@ -1,6 +1,6 @@
 import fastifyApollo from '@as-integrations/fastify';
 
-import { buildApolloServer } from './apollo';
+import { buildApolloServer } from './graphql/apollo';
 import { buildServer } from './http-server';
 
 import { getSignal } from './infra/signal';
