@@ -1,3 +1,5 @@
+import type { Knex } from 'knex';
+
 export interface Context {
-  demo: true;
+  db: Knex;
 }

@@ -1,8 +1,8 @@
 import type { QueryResolvers } from './../../../types.generated';
 export const user: NonNullable<QueryResolvers['user']> = async (
   _parent,
-  _arg,
-  _ctx
+  { id },
+  { db }
 ) => {
-  return null;
+  return await db('users').where({ id }).first();
 };
