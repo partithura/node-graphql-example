@@ -8,10 +8,10 @@
     ".yarn/**"
   ],
   "execMap": {
-    "mts": "ts-node -r dotenv/config --esm"
+    "ts": "ts-node --require dotenv/config"
   },
   "ext": ".ts,.json,.graphql,.gql,.js",
-  "watch": ["src/**", "schemas/**"],
+  "watch": ["src/**"],
   "env": {
     "NODE_ENV": "development"
   }
