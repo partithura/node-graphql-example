@@ -1,5 +1,6 @@
-import { buildApolloServer } from './apollo';
 import fastifyApollo from '@as-integrations/fastify';
+
+import { buildApolloServer } from './apollo';
 import { buildServer } from './http-server';
 
 import { getSignal } from './infra/signal';
@@ -17,10 +18,10 @@ const main = async (): Promise<void> => {
   );
 
   try {
-    server.start();
+    await server.start();
   } catch (err) {
     await server.stop().catch(() => {}); // ignore error
-    return Promise.reject(err);
+    await Promise.reject(err);
   }
 };
 

@@ -26,7 +26,7 @@ const buildConnectionConfig = (): Knex.Config => {
   };
 };
 
-const createConnection = () => {
+const createConnection = (): Knex => {
   return knex(buildConnectionConfig());
 };
 

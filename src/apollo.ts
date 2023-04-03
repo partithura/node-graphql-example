@@ -1,15 +1,12 @@
 import type { BaseContext } from '@apollo/server';
 import type { FastifyInstance } from 'fastify';
+import type { Resolvers } from './__generated__/resolvers-types';
 
 import { resolve } from 'node:path';
 import { readFile } from 'node:fs/promises';
 import { ApolloServer } from '@apollo/server';
 
-import fastifyApollo, {
-  fastifyApolloDrainPlugin,
-} from '@as-integrations/fastify';
-
-import { Resolvers } from './__generated__/resolvers-types';
+import { fastifyApolloDrainPlugin } from '@as-integrations/fastify';
 
 const schemaFile = resolve(__dirname, '../schemas/schema.graphql');
 

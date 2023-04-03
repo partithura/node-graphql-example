@@ -1,4 +1,4 @@
-import { Knex } from 'knex';
+import type { Knex } from 'knex';
 import { ulid } from 'ulidx';
 import { faker } from '@faker-js/faker/locale/pt_BR';
 

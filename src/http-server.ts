@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import type { FastifyInstance, FastifyPluginAsync } from 'fastify';
 import { STATUS_CODES } from 'node:http';
 import { randomUUID } from 'node:crypto';
