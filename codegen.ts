@@ -11,6 +11,11 @@ const config: CodegenConfig = {
     'src/graphql/modules': {
       // @ts-expect-error - This is a custom preset
       preset: '@eddeee888/gcg-typescript-resolver-files',
+      presetConfig: {
+        typesPluginsConfig: {
+          contextType: '../../contracts/context#Context',
+        },
+      },
     },
   },
   hooks: {
